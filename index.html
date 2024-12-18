@@ -1,218 +1,47 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="实验.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- START NAV -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secure boot讲解</title>
+    <link rel="stylesheet" href="复杂的.css">
+</head>
+<body>
 
-    <nav id="navbar" class="nav">
-      <ul class="nav-list">
-        <li>
-          <a href="#welcome-section">About</a>
-        </li>
-        <li>
-          <a href="#projects">Work</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- END NAV -->
-
-    <!-- START WELCOME SECTION -->
-
-    <section id="welcome-section" class="welcome-section">
-      <h1>Hey I am Mimic</h1>
-      <p>a web developer</p>
-    </section>
-
-    <!-- END WELCOME SECTION -->
-
-    <!-- START PROJECTS SECTION -->
-
-    <section id="projects" class="projects-section">
-      <h2 class="projects-section-header">These are some of my projects</h2>
-
-      <div class="projects-grid">
-        <a
-          href="https://codepen.io/freeCodeCamp/full/zNqgVx"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Tribute Page
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-        <a
-          href="https://codepen.io/freeCodeCamp/full/qRZeGZ"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/random-quote-machine.png"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Random Quote Machine
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-        <a
-          href="https://codepen.io/freeCodeCamp/full/wgGVVX"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/calc.png"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            JavaScript Calculator
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-        <a
-          href="https://codepen.io/freeCodeCamp/full/mVEJag"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/map.jpg"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Map Data Across the Globe
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-        <a
-          href="https://codepen.io/freeCodeCamp/full/wGqEga"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/wiki.png"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Wikipedia Viewer
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-        <a
-          href="https://codepen.io/freeCodeCamp/full/KzXQgy"
-          target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tic-tac-toe.png"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Tic Tac Toe Game
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-      </div>
-
-      <a
-        href="https://codepen.io/FreeCodeCamp/"
-        class="btn btn-show-all"
-        target="_blank"
-        >Show all<i class="fas fa-chevron-right"></i
-      ></a>
-    </section>
-
-    <!-- END PROJECTS SECTION -->
-
-    <!-- START CONTACT SECTION -->
-
-    <section id="contact" class="contact-section">
-      <div class="contact-section-header">
-        <h2>Let's work together...</h2>
-        <p>How do you take your coffee?</p>
-      </div>
-      <div class="contact-links">
-        <a
-          href="https://facebook.com/freecodecamp"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-facebook-square"></i> Facebook</a
-        >
-        <a
-          id="profile-link"
-          href="https://github.com/freecodecamp"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-github"></i> GitHub</a
-        >
-        <a
-          href="https://twitter.com/freecodecamp"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-twitter"></i> Twitter</a
-        >
-        <a href="/cdn-cgi/l/email-protection#d6b3aeb7bba6bab396b3aeb7bba6bab3f8b5b9bb" class="btn contact-details"><i class="fas fa-at"></i> Send a mail</a
-        >
-        <a href="tel:555-555-5555" class="btn contact-details"
-          ><i class="fas fa-mobile-alt"></i> Call me</a
-        >
-      </div>
-    </section>
-
-    <!-- END CONTACT SECTION -->
-
-    <!-- START FOOTER SECTION -->
-
-    <footer>
-      <p>
-        **This is just a fake portfolio. All the projects and contact details
-        given are not real.
-      </p>
-      <p>
-        &copy; Created for
-        <a href="https://www.freecodecamp.com/" target="_blank"
-          >freeCodeCamp <i class="fab fa-free-code-camp"></i
-        ></a>
-      </p>
-    </footer>
+    <h3 class="title1">secure boot</h3>
+    <h2>第一步：主机厂干了什么？</h2>
+    <p id="1">使用密钥生成工具，生成公钥私钥</p>存储公钥值表hash和加密解密主密钥在OTP中(OTP一次性编程存储器，不能擦除和修改)BSEC 可以理解为管理 OTP 的一种机制或控制器。
+    <p>8个公钥经过hash处理，将八个hash值放在一张表里，存储在header中。</p>
+    <p>签名，计算镜像的hash，将该哈希值用私钥签名，（ECC算法生成了一个签名）公钥和签名放入header中。</p>
+    <p>镜像存放在header中</p>
+    
 
 
-    <!-- END FOOTER SECTION -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+    
+    <h2>第二步：Rom验证，验证</h2>
+    <p>计算（哈希值表）的hash，与BSEC中的PKHTH比较。验证我们的公钥表是没有被改变的。</p>
+    <p>计算header中可用公钥的hash（用什么公钥，验证哪个），与表中的hash比较，验证。如果相等，我们拿到了正确的公钥。</p>
+    <p>使用验证过的公钥，验证签名:计算header中镜像的hash，与公钥解密镜像得到的hash进行比较。<br>如此，签名验证完成。</p>
+    <img src="images/签名认证1.png" alt="签名认证" width="1058px">
+    <p>1，2步为主机厂进行的动作，其他为ROM动作<br></p>
+    <p>---</p>
+
+    <h2>在原有的基础上加密解密</h2>
+    <p>PS:加密解密主密钥，并非业务密钥，使用派生常数，派生加密解密密钥。（可以存储在HSM中避免明文暴露。）</p>
+    <p>将FBSL的明文二进制文件计算hash，将hash的128最高有效位存储在header中</p>
+    <p>使用派生常数，根据PRF CMAC推导，将加密解密主密钥生成加密密钥</p>
+    <p>加密密钥根据AES算法（对称加密），AES的初始向量设置为128最高有效位，对镜像明文进行加密，存放在header中。</p>
+    <strong>解密</strong>
+    <p>主机厂通过密钥生成工具，还将加密解密主密钥存储在OTP中，<a href="#1">上文</a>“主机厂干了什么？”的第一步中。</p>
+    <p>ROM代码使用header中的派生常数，获得解密密钥。</p>
+    <p>解密密钥使用AES算法（AES的初始向量为header中的FBSL镜像哈希128位最高有效位），解密文件，获得FSBL明文。</p>
+    <p>将该明文计算hash，与head中的128位最高有效位比较。</p>
+    <p>验证完成</p>
+    <img src="images/加密解密.png" width="1058px">
+
+    <h3 class="FBSL">FBSL-第一段引导加载程序</h3>
+    <p></p>
+
+
+</body>
 </html>
