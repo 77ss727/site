@@ -10,9 +10,20 @@
 <body>
 
     <h3 class="title1">secure boot</h3>
-    <h2>主机厂干了什么？</h2>
+    <header>
+    <nav>
+        <span class="mulu">目录</span>
+        <ul>
+            <li><a href="#1">签名验证</a></li>
+            <li><a href="#2">加密解密</a></li>
+            <li><a href="#3">引导加载程序</a></li>
+            <li><a href="#4"></a></li>
+        </ul>
+    </nav>
+    </header>
+    <h2 id="1">主机厂干了什么？</h2>
     <p id="1">1 使用密钥生成工具，生成八对公钥私钥。</p>
-    <p>2 | 8个公钥经过hash处理，将八个hash值放在一张表里</p>
+    <p>2 <span>| </span>8个公钥经过hash处理，将八个hash值放在一张表里</p>
     <p>3 计算表的hash值，存放在OTP中（一次性编程存储器，不能擦除和修改）。BSEC 可以理解为管理 OTP 的一种机制或控制器，进行对OTP内容的操作。</p>
     <p>4 签名，计算镜像的hash，签名工具将该哈希值用私钥签名（通过ECC算法————非对称加密，生成了一个签名），公钥和签名放入header中。</p>
     <p>5 将Hash Table存放在header中，可用公钥存放在header中。</p>
@@ -20,7 +31,7 @@
 
 
     
-    <h2>Rom验证：</h2>
+    <h2 >Rom验证：</h2>
     <p>6 计算（哈希值表）的hash，与OTP中的PKHTH（公钥hash表的哈希）比较。验证我们的公钥hash表是没有被改变的，得到可信公钥hash表。</p>
     <p>7 计算header中可用公钥的hash（用什么公钥，验证哪个），与表中的hash比较，验证。如果相等，我们拿到了可信的公钥。</p>
     <p>8 使用可信公钥将签名进行解密，得到签名镜像的hash。</p>
@@ -28,7 +39,7 @@
     <img src="images/签名认证3.png" alt="签名认证" width="1058px">
 
 
-    <h2>在原有的基础上加密解密</h2>
+    <h2 id="2">在原有的基础上加密解密</h2>
     <strong>加密 主机厂动作：</strong>
     <p>PS:加密解密主密钥，并非业务密钥，使用派生常数，派生加密解密密钥。（主密钥可以存储在HSM中避免明文暴露。）
         <br>PRF CMAC 派生是一种通过基于 CMAC 的伪随机函数从主密钥中派生多个密钥的技术。这种方法在许多加密协议中应用广泛，能够为密钥管理和安全通信提供强大的支持。通过合理地应用 CMAC 和 PRF，可以生成不可预测且安全的密钥，确保数据的保密性、完整性和认证。
@@ -47,9 +58,48 @@
     
     <img src="images/加密解密3.png" width="1058px">
 
-    <h3 class="FBSL">FBSL-第一段引导加载程序</h3>
-    <p></p>
+    <h3 class="FBSL" id="3">FBSL-第一段引导加载程序</h3>
+    <div class="aa">
+    <p class="aa">1、 FSBL是在BootROM之后启动的引导程序。由BootROM加载到SYSRAM或者直接在线性Flash上运行。FSBL主要完成以下工作：
 
+       <br> 1） 根据XPS(或vivado)中的配置，完成PS端的初始化。（MIO 、Clock 、DDR）
+        
+       <br>2） 使用比特流文件对PL进行配置 。
+        
+       <br>3） 加载第二阶段引导程序（SSBL）或者裸跑程序（无操作系统时）到DDR。
+        
+       <br> 4） 跳转到DDR执行SSBL或者裸跑程序。
+       <br>FSBL  从SYSRAM 执行，此 bootloader 初始化 clock tree 和 DDR controller 的 （部分）。
+       最后，FSBL 将第二阶段引导加载程序 （SSBL） 加载到 DDR 外部 RAM 中并跳转到它。
+       
+        <div></div>
+        <span> SSBL </span>
+        <br> 1、SSBL的引导程序称为BootLoader,U-boot。FSBL帮助引导U-Boot到内存中。
+        
+        <br> 2、U-boot拥有非常强大的功能，提供了许多用户指令、读写内存、flash、USB设备。U-Boot会帮助我们完成linux内核启动之前所必须的硬件初始化，例如串口、DDR控制器等。
+    </p>
+    <span>启动流程</span>
+    <div class="cc">
+    <p>
+    BL1是信任链的根所在,在STM32 MPU中，BL1被删除使用只读程序ROM,
+    具有最高的执行权限EL3。
+
+    <br>BL2在flash中的一段可信安全启动代码，它的可信建立在ROM对它的验证，主要完成一些平台相关的初始化，比如对ddr的初始化
+    在完成初始化后寻找BL31或者BL33进行执行；如果找到了BL31则不会继续调用BL33，如果没有BL31则BL33必须有。
+
+    <br>BL31作为EL3最后的安全堡垒，它不像BL1和BL2是一次性运行的。
+    它的主要任务是找到BL32，验签，并运行BL32。
+
+    <br>BL32是所谓的secure os
+    一般在BL32会运行OPTee OS + 安全app，它是一个可信安全的OS运行在EL1并在EL0启动可信任APP（如指纹信息，移动支付的密码等），并在Trust OS运行完成后通过SMC指令返回BL31，BL31切换到Non-Seucre World继续执行BL33。
+
+    
+    <br>到了BL33这里就是Normal Wrold了，运行的都是非安全固件，也就是我们常见的UEFI firmware或者u-boot，也可能是直接启动Linux kernel。
+
+    </p>
+    </div>
+    </div>
+    <img src="images/Boot.png" >
 
 </body>
 </html>
