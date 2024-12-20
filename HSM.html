@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSM</title>
+
+</head>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+    main{
+        margin: 40px auto;
+        max-width: 800px;
+        background-color: white;
+        line-height: 40px;
+        padding: 40px;
+    }
+    h3{
+        font-size: 30px;
+        margin: 30px 0;
+    }
+    span{
+        font-size: 18.72px;
+        font-weight: 700;
+    }
+    a {
+        text-decoration: none;
+      }
+    a:hover{
+        color: rgb(212, 123, 14);
+    }
+    img{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .jiange{
+        height: 40px;
+    }
+    </style>
+    <body>
+    <main>
+    
+    <h3 class="title1">HSM</h3>
+    <p><span>定义：</span>
+        <br>HSM是一种专门设计的硬件设备，用于保护和管理密钥、执行加密操作，提供一个安全环境来处理敏感数据，同时提高性能的加密解密运算能力。
+    </p>
+    <p style="color: rgb(209, 194, 22);">接下来我们从HSM的安全性，加密解密模块————硬件加速器，HSM架构，与secure boot的联系，使用的例子几个方面来介绍HSM。</p>
+    <h3 class="title1">HSM的安全性</h3>
+    <p>安全的密钥存储、安全的数据和计数器可以保存在专用的数据闪存区域中。
+        <br>HSM通常具有抗篡改的物理外壳，如果有人试图物理访问设备，设备可以自动删除存储的密钥，以防密钥泄露。
+        <br> HSM执行安全启动过程，确保只有验证过的、未被篡改的固件和软件可以运行。
+        <br>HSM能在其安全环境内直接生成高质量的随机密钥，确保密钥的强度。
+        <br>存储在HSM中的密钥受到强加密保护，避免在传输过程中或在外部存储时被截获。
+        <br> 所有密钥相关操作，如加密、解密、数字签名等，都在HSM内部完成，密钥不会以明文形式外泄。
+        <br>HSM 实施严格的访问控制并提供审计跟踪来监控和跟踪所有操作，确保问责制和合规性。
+        <br>HSM 通常包括冗余和备份机制，以确保硬件故障时的高可用性和数据恢复。
+        
+    </p>
+    <div style="text-align: center;">
+    <img src="images/HSM加密解密.png" style="margin: 0 auto;" >
+    </div>
+    <p style="color: rgb(197, 26, 26);">Hypervisor:一种运行在物理服务器和操作系统之间的中间层软件，可以允许多个操作系统和应用共享一套基础物理硬件。</p>
+    <div style="text-align: center;">
+    <img src="images/HSM2.png" >
+    </div>
+    <p>在HSM中，身份验证是在一个被严格隔离的安全区域内进行的。这个区域被设计成即使发生安全事件（如攻击或故障），其影响也会被限制在这个区域内，不会扩散到其他部分，从而确保整个系统的安全性和稳定性。</p>
+    <h3>硬件加速器</h3>
+    <p>专为执行特定加密运算优化的硬件组件。（专用的集成电路或者专用硬件设备）
+        加速器可以显著提升加密和解密操作的速度，同时减少CPU的负担。它们通常用于处理对性能要求较高的加密算法，如对称加密、非对称加密、哈希计算等。
+        以满足高速数据处理需求。
+        硬件加速器还应用于其他领域，旨在加速特定任务或计算过程，提高性能，降低功耗。如图形加速器、人工智能加速器、信号处理加速器、数据库加速器等。
+        
+    </p>
+    <h3>HSM架构</h3>
+    <p>HSM架构通常包括硬件层：处理器，存储模块，防篡改机制；
+        <br>固件层：一个轻量级、安全性优化的专用操作系统，加密算法模块，随机数生成器；
+        <br>接口层：硬件接口：USB、PCIe、以太网等接口，应用接口：提供标准化的 API（如 PKCS#11、JCE、Microsoft CNG）；
+        <br>管理层：用户认证，控制访问，日志与审计。
+    </p>
+    <img src="images/HSMjiagou.png" >
+    <p>
+        <br>32-bit CPU：这是HSM的中央处理器，负责执行指令和管理HSM的整体操作。
+        <br>Unified Cache：统一缓存用于存储CPU频繁访问的数据，以提高处理速度。
+        <br>PKC：公钥密码学模块，用于执行公钥加密算法，如RSA等。
+        <br>Timers 和 Watchdog：定时器用于定时操作，而看门狗用于监控系统状态，防止系统死锁。
+        <br>TriCores：指多核处理器，用于提高处理能力。
+        <br>SFRs：特殊功能寄存器，用于控制和配置硬件功能。
+        <br>Clock Divider：时钟分频器：主要功能是对输入的时钟信号进行频率划分，以产生一个或多个较低频率的输出时钟信号。
+        <br>NVIC 和 MPU：嵌套向量中断控制器和内存保护单元，用于管理中断和保护内存。
+        <br>ECC：错误校正码，用于检测和纠正数据传输中的错误。
+        <br>Single Access Window：一种用于控制和限制对特定资源访问时间的技术手段，旨在提升系统的安全性、稳定性和效率。
+        <br>SPI: 是一种高速同步串行数据接口，通常用于连接微控制器和外围设备。
+        <br>SPB：是另一种串行接口，可能用于连接外围设备或传感器。
+    </p>
+    <h3>面向未来的HSM</h3>
+    <p>车载网络向集中式平台的转换，正在推动硬件和软件的分离。HSM在确保这些平台的安全性方面发挥着核心作用。HSM不仅可以通过SecOC保护在域控制器连接的ECU中占主导地位的CAN/CAN FD总线的数据流免受访问和操纵，而且能够保护最高级别的安全用例，和具有高数据负载和实时要求的软件应用程序的安全运行。新一代HSM设计用于多核和多应用程序任务，使用批量MAC接口，即使在高数据负载和异构格式的情况下，也可以确保通信的实时性。</p>
+    <h3>与secure boot的联系</h3>
+    <p>HSM可以安全地存储用于安全启动过程中的公私钥对、证书和其他敏感数据。
+        这些密钥用于验证启动代码的签名，确保其来自可信来源且未被篡改。
+        <br>启动时的身份验证:
+        <br>HSM可以在启动过程中提供额外的身份验证层，确保只有经过授权的实体可以访问或修改启动代码。
+
+        <br>安全启动日志记录:
+        <br>HSM可以用于安全地记录启动过程中的事件，以便后续审计和分析，确保任何异常行为都能被追踪和调查。
+        <br>在OSTL生态系统中，签名工具用于对ROM代码加载的平台Trusted Firmware-A BL2软件进行签名。
+        可信固件-A FIP包含由可信固件-A BL2加载的固件镜像及其配置文件。 cert_create工具[1]处理FIP中包含的二进制文件的签名和证书链生成。这两种工具都支持使用外部HSM 。
+        <br><div  style="color: rgb(27, 156, 185);">HSM和安全启动结合使用，可以显著提高系统的整体安全性，防止恶意软件或攻击者在启动过程中植入或篡改代码。
+        这种组合不仅保护了启动过程本身，还为后续的操作系统和应用程序提供了可靠的基础。
+        </div>
+        </p>
+
+
+    <h3>HSM的使用</h3>
+    <p>
+        可以通过Fabric节点（开源的企业级区块链框架，允许不同的组织构建私有、许可的区块链网络，适用于需要高度控制成员资格和数据隐私的场景）硬件安全模块(HSM)来产生和存储私钥。HSM用于保护私钥和处理加密操作。允许peer节点与orderer节点在不暴露他们的私钥的条件下去签名和背书交易。
+        <br>
+        首先，需要安装一个实现了PKCS11的接口。本例使用开源的softhsm实现。在下载和配置完成softhsm后，需要设置环境变量SOFTHSM2_CONF指向softhsm2配置文件。
+可以使用softhsm去创建用于处理关于Fabric节点在HSM插槽中用于加密操作令牌。在这个示例中，我们创建了一个标签为fabric，密码为71811222的令牌。在创建令牌完成之后，更新配置文件来使用PKCS11，并将令牌作为加密服务提供者。可以在下面发现关于BCCSP部分配置的例子：
+#############################################################################
+# <br>BCCSP (区块链加密服务提供者) 部分，用于选择使用的已实现的加密库文件
+#############################################################################
+<br>bccsp:
+<br> default: PKCS11
+<br>pkcs11:
+<br> Library: /etc/hyperledger/fabric/libsofthsm2.so
+<br> Pin: 71811222
+<br> Label: fabric
+<br> hash: SHA2
+<br>  security: 256
+<br>也可以通过环境变量来覆盖配置文件中相关的字段。如果通过Fabric CA服务器连接到了HSM，则需要设置以下环境变量：
+<br>FABRIC_CA_SERVER_BCCSP_DEFAULT=PKCS11
+<br>FABRIC_CA_SERVER_BCCSP_PKCS11_LIBRARY=/etc/hyperledger/fabric/libsofthsm2.so
+<br>FABRIC_CA_SERVER_BCCSP_PKCS11_PIN=71811222
+<br>FABRIC_CA_SERVER_BCCSP_PKCS11_LABEL=fabric
+<br>如果使用docker compose部署了节点，在构建完自己的镜像后，可以更新docker compose文件通过volumes将softhsm库文件和配置文件挂载到容器中。例如，可以添加下面的环境和volumes变量到docker compose文件：
+<br> environment:
+<br>  - SOFTHSM2_CONF=/etc/hyperledger/fabric/config.file
+<br>volumes:
+<br>    - /home/softhsm/config.file:/etc/hyperledger/fabric/config.file
+<br>    - /usr/local/Cellar/softhsm/2.1.0/lib/softhsm/libsofthsm2.so:/etc/hyperledger/fabric/libsofthsm2.so
+<br>配置使用HSM的网络#
+<br>如果使用HSM部署了Fabric节点，私钥将会在HSM内部生成而不是节点本地的MSP中的keystore文件夹内。MSP中的keystore文件夹将为空文件夹。另外，Fabric节点将使用关于signcerts文件夹内的签名证书的主题秘钥标识符去接收HSM中的私钥。这个创建MSP文件夹的过程将和之前不同，取决于自己使用的Fabric 证书认证中心。
+<br>使用Fabric CA#
+<br>可以通过编辑相同的配置文件配置Fabric CA使peer节点或者是orderer节点使用HSM。因为可以使用Fabric CA内部的HSM来生成秘钥。通过下面的步骤将直接创建本地的MSP文件夹：
+<br>1.	创建一个HSM令牌并将它指向Fabirc CA的配置文件。当Fabric CA服务启动时，将会在HSM中生成CA签名证书。如果不担心CA签名证书是否暴露，可以跳过该步骤。
+<br>2.	使用Fabric CA客户端通过自己的CA去注册peer或者order节点身份。
+<br>3.	编辑Fabric CA客户端配置文件或者是环境变量使用HSM作为加密服务提供者并再次登录获取节点的身份。登录命令将通过HSM生成私钥文件.
+<br>4.	更新关于peer或者orderer节点的配置文件中的BCCSP部分使用PKCS11，并将令牌作为加密服务提供者。指向由Fabric CA客户端创建的MSP文件夹。一旦部署完成，peer节点或者orderer节点将可以通过由HSM提供保护的私钥文件签名和背书交易。
+<br>通过自己的CA使用HSM#
+<br>如果使用自己的CA证书中心来部署Fabric组件，可以通过以下几步使用HSM:
+<br>1.	配置自己的CA使用PKCS11创建令牌与HSM进行通信。然后使用自己的CA去为每一个节点生成私钥和签名证书。私钥由HSM内部进行生成。
+<br>2.	使用CA去构建节点的MSP文件夹。将步骤一中生成的签名证书放入signcerts文件夹内。可以保持keystore文件夹为空。
+<br>3.	更新关于peer或者orderer节点的配置文件中的BCCSP部分使用PKCS11，并将令牌作为加密服务提供者。指向由Fabric CA客户端创建的MSP文件夹。一旦部署完成，peer节点或者orderer节点将可以通过由HSM提供保护的私钥文件签名和背书交易。
+
+    </p>
+<div class="jiange"></div>
+    <a href="secure boot.html">上一页：secure boot</a>
+    </main>
+
+
+
+    
+
+    
+</body>
+</html>
