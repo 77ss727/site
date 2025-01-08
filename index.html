@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雅析安全系统（上海）</title>
+    <title>雅析安全系统（上海）有限公司</title>
     <style>
+
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -63,16 +65,57 @@
             justify-content: center;
             gap: 1.5rem;
             padding: 0.8rem 0;
+            width: 100%; 
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-size: 1rem;
+            position: relative;
         }
 
         nav a:hover {
             text-decoration: underline;
+        }
+
+        nav .dropdown {
+            position: relative;
+        }
+
+        nav .dropdown-content {
+            
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            padding: 1rem;
+            white-space: nowrap;
+            min-width: 100px;
+            opacity: 0; 
+            transform: translateY(-10px); 
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        nav .dropdown-content a {
+            color: #005bb5;
+            padding: 0.5rem 0rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        nav .dropdown-content a:hover {
+            background: #f5f5f5;
         }
 
         .hero {
@@ -90,6 +133,9 @@
 
         .hero h1 {
             font-size: 3rem;
+            font-family: "Diphylleia", serif;
+            font-weight: 1200;
+            font-style: normal;
             color: #d14913;
             margin: 0;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -129,15 +175,64 @@
         footer {
             background: #333;
             color: white;
-            text-align: center;
+            
             padding: 1.5rem 1rem;
             font-size: 0.9rem;
         }
 
+        
+        footer>p{
+            text-align: center;
+        }
         .foot {
+            text-align:left;
+            margin-left: 25%;
             margin-top: 0.5rem;
-            position: relative;
-            right: 120px;
+            
+        }
+        .head_foot{
+            text-align: left;
+            margin-left: 25%;
+            font-size: 1.5rem;
+
+        }
+        .head_exida{
+            background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            height: 4rem;
+            font-size: 2rem;
+            color: #cf3f0f;
+            font-family: "Salsa", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .introduced{
+            background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            display: flex;
+        }
+        .introduced>img{
+            padding: 0 10rem;
+            width: 30%;
+            height: auto;
+        }
+        .introduced> a{
+            display: flex;
+            align-items: center;
+            padding: 0 10rem;
+            text-decoration: none;
+        }
+        .introduced> p{
+            display: flex;
+            max-width: 50rem;
+            margin: 0 auto;
+            align-items: center;
+            padding: 0 10rem;
+        }
+        .jiange{
+            height: 2.5rem;
         }
 
         @media (max-width: 768px) {
@@ -161,6 +256,9 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Salsa&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -169,10 +267,36 @@
         <a href="article.html" class="bouncing-button">了解我们!</a>
     </header>
     <nav>
-        <a href="#services">服务</a>
-        <a href="article.html">了解我们</a>
-        <a href="#contact">产品</a>
-        <a href="#">联系方式</a>
+        <div class="dropdown">
+            <a href="#">服务</a>
+            <div class="dropdown-content">
+                <a href="#service1">证书</a>
+                <a href="#service2">培训</a>
+                <a href="#service3">服务 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="article.html">了解我们</a>
+            <div class="dropdown-content">
+                <a href="#about1">关于我们</a>
+                <a href="#about2">团队介绍</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#contact">产品</a>
+            <div class="dropdown-content">
+                <a href="#product1">产品 1</a>
+                <a href="#product2">产品 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">联系方式</a>
+            <div class="dropdown-content">
+                <a href="#email">邮箱:sales.china@exida.com</a>
+                <a href="#phone">电话:021-5858-6551</a>
+            </div>
+        </div>
+        <a href="/实验/Visiting.html">来访通道</a>
     </nav>
     <div class="hero">
         <h1>Welcome to exida</h1>
@@ -201,12 +325,26 @@
             </div>
         </div>
     </div>
+    <div class="head_exida">
+        <p>相关介绍</p>
+    </div>
+    <div class="introduced">
+        <img src="/images/exida2.png" >
+        <a href="https://www.exida.com/Company/Locations"><p>exida是由顶尖安全专家与各领域技术专家组成的跨国集团公司，<br>目前全球有二百多位专家，包含中国国内本地专家与工程团队十余位。
+        <br>是一家专注于安全领域评估，工程咨询服务和认证服务的国际权威公司。</p></a>
+    </div>
+    <div class="jiange"></div>
+    <div class="introduced">
+        <p>雅析安全系统（上海）有限公司，成立于2016年，是国内最专业的智能驾驶时代安全解决方案服务供应商（包含认证评审）。公司致力于将专家知识与经验转换为可实现的工程成果：团队可以指导客户如何进行安全设计与安全开发，也可以按照客户委托去展开设计开发工作（从需求工程到实现方案），或是直接将团队已有的解决方案提供给客户做参考设计或系统集成使用。<br>
+            最终客户可以透过雅析独立安全评估的方式对整体开发做闭环。公司技术团队理解各式安全标准，也了解各样安全实现案例，但更重视在当下时代与技术背景下安全具体的工程实践结果。</p>
+        <img src="/images/exida5.png" >
+    </div>
     <footer>
-        
-        <p class="foot"><i class="fa fa-map-marker"></i> 地址</p>
-        <p class="foot"><i class="fa fa-phone"></i> 电话</p>
-        <p class="foot"><i class="fa fa-envelope"></i> 邮件</p>
-        <p>&copy; 2024 exida. All rights reserved.</p>
+        <p class="head_foot">联系我们</p>
+        <p class="foot"><i class="fa fa-map-marker"></i> 地址：浦江国际金融广场</p>
+        <p class="foot"><i class="fa fa-phone"></i> 电话：021-5858-6551</p>
+        <p class="foot"><i class="fa fa-envelope"></i> 邮件：sales.china@exida.com</p>
+        <p>&copy; 2024 exida(上海)雅析安全系统有限公司</p>
     </footer>
 </body>
 </html>
