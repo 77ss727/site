@@ -119,10 +119,6 @@
         }
 
         .hero {
-            background-image: url('../images/exida1.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
             color: white;
             height: 400px;
             display: flex;
@@ -131,7 +127,21 @@
             text-align: center;
         }
 
+        .hero::before {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/exida1.jpg'); /* 替换为你的图片路径 */
+            background-size: cover;
+            background-position: center;
+            filter: blur(3px); /* 模糊效果 */
+            z-index: 1;
+        }
         .hero h1 {
+            position: absolute;
+            z-index: 2;
             font-size: 3rem;
             font-family: "Diphylleia", serif;
             font-weight: 1200;
@@ -212,12 +222,15 @@
         .introduced{
             background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
             display: flex;
+            font-size: 1.3rem;
+            line-height: 2.4rem;
         }
         .introduced>img{
             padding: 0 10rem;
             width: 30%;
             height: auto;
         }
+
         .introduced> a{
             display: flex;
             align-items: center;
@@ -234,7 +247,16 @@
         .jiange{
             height: 2.5rem;
         }
-
+        .cooperate{
+            background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            height: 40rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #cf3f0f;
+            font-size: 1.5rem;
+        }
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -253,6 +275,18 @@
             .hero h1 {
                 font-size: 2rem;
             }
+            .introduced {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .introduced img {
+                max-width: 80%;
+            }
+            
+            .introduced a, .introduced p {
+                padding: 1rem 0;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -264,7 +298,7 @@
 <body>
     <header>
         <img src="../images/logo-removebg-preview.png" alt="Company Logo">
-        <a href="article.html" class="bouncing-button">了解我们!</a>
+        <a href="article.html" class="bouncing-button">Learn More!</a>
     </header>
     <nav>
         <div class="dropdown">
@@ -296,7 +330,7 @@
                 <a href="#phone">电话:021-5858-6551</a>
             </div>
         </div>
-        <a href="Visiting.html">来访通道</a>
+        <a href="/实验/Visiting.html">来访通道</a>
     </nav>
     <div class="hero">
         <h1>Welcome to exida</h1>
@@ -326,7 +360,7 @@
         </div>
     </div>
     <div class="head_exida">
-        <p>相关介绍</p>
+        <p>关于我们</p>
     </div>
     <div class="introduced">
         <img src="/images/exida2.png" >
@@ -337,7 +371,13 @@
     <div class="introduced">
         <p>雅析安全系统（上海）有限公司，成立于2016年，是国内最专业的智能驾驶时代安全解决方案服务供应商（包含认证评审）。公司致力于将专家知识与经验转换为可实现的工程成果：团队可以指导客户如何进行安全设计与安全开发，也可以按照客户委托去展开设计开发工作（从需求工程到实现方案），或是直接将团队已有的解决方案提供给客户做参考设计或系统集成使用。<br>
             最终客户可以透过雅析独立安全评估的方式对整体开发做闭环。公司技术团队理解各式安全标准，也了解各样安全实现案例，但更重视在当下时代与技术背景下安全具体的工程实践结果。</p>
-        <img src="/images/exida5.png" >
+        <img class="eixda_yaxi" src="/images/exida5.png" width="420px" height="70px">
+    </div>
+    <div class="jiange"></div>
+    <div class="cooperate">
+        <p>我们曾与多家优秀的企业建立合作关系，共同创造了出色的成果。</p>
+        <img src="/images/exida7.png" width="40%">
+
     </div>
     <footer>
         <p class="head_foot">联系我们</p>
