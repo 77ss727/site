@@ -246,6 +246,7 @@
         }
         .jiange{
             height: 2.5rem;
+            background: linear-gradient(135deg, #F5F5DC, #D3D3D3);
         }
         .cooperate{
             background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
@@ -257,6 +258,14 @@
             color: #cf3f0f;
             font-size: 1.5rem;
         }
+        .video{
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -298,29 +307,29 @@
 <body>
     <header>
         <img src="../images/logo-removebg-preview.png" alt="Company Logo">
-        <a href="article.html" class="bouncing-button">Learn More!</a>
+        <a href="article.html" target="_blank" class="bouncing-button">Learn More!</a>
     </header>
     <nav>
         <div class="dropdown">
             <a href="#">服务</a>
             <div class="dropdown-content">
-                <a href="#service1">证书</a>
-                <a href="#service2">培训</a>
-                <a href="#service3">服务 3</a>
+                <a href="title.html" target="_blank">证书</a>
+                <a href="#service2" target="_blank">培训</a>
+                <a href="#service3" target="_blank">服务 3</a>
             </div>
         </div>
         <div class="dropdown">
-            <a href="article.html">了解我们</a>
+            <a href="article.html" target="_blank">了解我们</a>
             <div class="dropdown-content">
-                <a href="#about1">关于我们</a>
-                <a href="#about2">团队介绍</a>
+                <a href="#about1" target="_blank">关于我们</a>
+                <a href="#about2" target="_blank">团队介绍</a>
             </div>
         </div>
         <div class="dropdown">
-            <a href="#contact">产品</a>
+            <a href="#contact" target="_blank">产品</a>
             <div class="dropdown-content">
-                <a href="#product1">产品 1</a>
-                <a href="#product2">产品 2</a>
+                <a href="#product1" target="_blank">产品 1</a>
+                <a href="#product2" target="_blank">产品 2</a>
             </div>
         </div>
         <div class="dropdown">
@@ -330,7 +339,7 @@
                 <a href="#phone">电话:021-5858-6551</a>
             </div>
         </div>
-        <a href="/实验/Visiting.html">来访通道</a>
+        <a href="Visiting.html" target="_blank">来访通道</a>
     </nav>
     <div class="hero">
         <h1>Welcome to exida</h1>
@@ -364,7 +373,7 @@
     </div>
     <div class="introduced">
         <img src="/images/exida2.jpg" >
-        <a href="https://www.exida.com/Company/Locations"><p>exida是由顶尖安全专家与各领域技术专家组成的跨国集团公司，<br>目前全球有二百多位专家，包含中国国内本地专家与工程团队十余位。
+        <a href="https://www.exida.com/Company/Locations" target="_blank"><p>exida是由顶尖安全专家与各领域技术专家组成的跨国集团公司，<br>目前全球有二百多位专家，包含中国国内本地专家与工程团队十余位。
         <br>是一家专注于安全领域评估，工程咨询服务和认证服务的国际权威公司。</p></a>
     </div>
     <div class="jiange"></div>
@@ -377,7 +386,11 @@
     <div class="cooperate">
         <p>我们曾与多家优秀的企业建立合作关系，共同创造了出色的成果。</p>
         <img src="/images/exida7.png" width="40%">
+    </div>
 
+    <div class="video">
+        <a href="https://ent.cctv.com/2023/05/10/VIDEb1XFTjqCEv58dHTVvEbE230510.shtml?spm=C86960271485.PZhoMDNVaGGr.0.0" target="_blank"><img src="/images/exida8.png" ></a>
+        <p>点击或扫描二维码可查看</p>
     </div>
     <footer>
         <p class="head_foot">联系我们</p>

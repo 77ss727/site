@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exida上海雅析安全系统</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .top-region {
+            position: relative;
+            width: 100%;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+            transition: transform 0.3s ease; /* 添加平滑过渡效果 */
+            z-index: 3;
+        }
+        .back{
+            background: white;
+            position: fixed; 
+            top: 37.6px;
+            left: 0; 
+            right: 0; 
+            z-index: 3; 
+            border-bottom: 1px solid #ddd;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20rem;
+            font-family: 'Circular Std Book', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 2.2rem;
+            max-width: 1140px;
+            margin: 0 auto;
+            background: white;
+            
+        }
+        .header img{
+            margin-left: 50px;
+        }
+        .header-1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding-right: 100px;
+        }
+        .dropdown{
+            position: relative;
+        }
+        .dropdown-content{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 100px;
+            white-space: nowrap;
+            background: #fff;
+            opacity: 0;
+        }
+        .dropdown:hover .dropdown-content{
+            opacity: 1;
+        }
+        .header a{
+            color: black;
+            padding: 0.7rem 0rem;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown-content a{
+            color: black;
+            padding: 0.5rem 10px;
+        }
+        .header a:hover{
+            color: #f93b2a;
+        }
+        .image-section {
+            position: relative;
+            top: 57.8px;
+            width: 100%;
+            height: 700px; /* 根据需要调整高度 */
+        }
+        .image-section .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/exida9.jpg'); /* 这里替换为图片路径 */
+            background-size: cover;
+            background-position: center;
+            filter: blur(3px); /* 应用虚化效果 */
+            z-index: 0;
+        }
+        .image-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* 半透明黑色背景 */
+            z-index: 1;
+            
+        }
+        .image-section .text {
+            height: 700px;
+            color: white;
+            z-index: 2; /* 确保文字层在最上层 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 100px;
+        }
+        .image-section .text h1{
+            font-size: 100px;
+            pad: 100px;
+        }
+        .image-section .text p{
+            font-size: 40px;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="top-region">
+        <p>欢迎访问雅析安全系统官网 | 联系电话: 021-5858-6551</p>
+    </div>
+    <div class="back">
+        <div class="header">
+            <img src="/images/logo.png" width="90px" height="47.5px">
+            <div class="header-1">
+                <div class="dropdown">
+                    <a href="#">服务</a>
+                    <div class="dropdown-content">
+                        <a href="#service1" target="_blank">证书</a>
+                        <a href="#service2" target="_blank">培训</a>
+                        <a href="#service3" target="_blank">服务 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="article.html" target="_blank">了解我们</a>
+                    <div class="dropdown-content">
+                        <a href="#about1" target="_blank">关于我们</a>
+                        <a href="#about2" target="_blank">团队介绍</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#contact" target="_blank">产品</a>
+                    <div class="dropdown-content">
+                        <a href="#product1" target="_blank">产品 1</a>
+                        <a href="#product2" target="_blank">产品 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">联系方式</a>
+                    <div class="dropdown-content">
+                        <a href="#email">邮箱:sales.china@exida.com</a>
+                        <a href="#phone">电话:021-5858-6551</a>
+                    </div>
+                </div>
+                <a href="/实验/Visiting.html" target="_blank">来访通道</a>
+            </div>
+        </div>
+    </div>
+    <div class="image-section">
+        <div class="background"></div> 
+        <div class="overlay">
+            <div class="text">
+                <h1>认证</h1>
+                <p>exida力求提供世界上有用和有价值的人员、产品、系统和过程认证程序。 </p>
+            </div> 
+        </div>
+    </div>
+    
+    <script>
+        const topRegion = document.querySelector('.top-region');
+        const header = document.querySelector('.back');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topRegion.style.transform = 'translateY(-100%)'; 
+                header.style.top = '0'; 
+            } else {
+                topRegion.style.transform = 'translateY(0)';
+                header.style.top = '40px';
+            }
+        });
+    </script>
+</body>
+</html>
