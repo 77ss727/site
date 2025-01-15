@@ -224,6 +224,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /*动态星星，虽然没什么用*/
         .exida4{
             display: flex;
             justify-content: center;
@@ -306,6 +307,104 @@
                 drop-shadow(0 -150px #3cc2ff) drop-shadow(0 -150px #3cc2ff);
             }
         }
+        /*星星动态，截至*/
+        @media (max-width: 600px) {
+            h1 h2{
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            .ceshi h1 {
+                left: 20%;
+                top: 35%;
+                font-size: 40px;
+            }
+            .bar {
+                width: 50%;
+                bottom: 15%;
+                right: 10%;
+            }
+            .bar1 {
+                font-size: 14px;
+                width: 150px;
+                height: 40px;
+                margin: 5px 30px;
+            }
+            img{
+                width: 100%;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .ceshi h1 {
+                left: 10%;
+                top: 30%;
+                font-size: 30px;
+            }
+            .bar {
+                width: 80%;
+                bottom: 10%;
+                right: 5%;
+                flex-direction: column;
+            }
+            .bar1 {
+                font-size: 12px;
+                width: 120px;
+                height: 35px;
+                margin: 10px auto;
+            }
+            .exida2 h1 {
+                font-size: 1.5rem;
+                margin-right: 5rem;
+            }
+            .exida2 p {
+                right: 10%;
+                font-size: 1rem;
+            }
+            .button1 {
+                right: 10%;
+                width: 8rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+            .wechat-container {
+                top: 50%;
+                right: 5%;
+            }
+            img{
+                width: 1000px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .ceshi h1 {
+                font-size: 20px;
+                left: 5%;
+                top: 25%;
+            }
+            .bar1 {
+                font-size: 10px;
+                width: 100px;
+                height: 30px;
+            }
+            .exida2 h1 {
+                font-size: 1.2rem;
+                margin-right: 2rem;
+            }
+            .exida2 p {
+                font-size: 0.9rem;
+                right: 5%;
+            }
+            .button1 {
+                width: 7rem;
+                height: 2rem;
+                font-size: 0.8rem;
+            }
+            .wechat-container {
+                top: 45%;
+                right: 2%;
+            }
+        }        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -321,7 +420,7 @@
     </div>
     <div class="exida2">
         <div class="img1">
-            <img src="/images/img1.png" width="100%" height="auto" >
+            <img src="/images/img1.png" >
         </div>
         <h1>我们助力于汽车功能安全方面认证与咨询</h1>
         <p>工程和开发 安全SOA和FOTA 流程设置 ISO26262</p>
