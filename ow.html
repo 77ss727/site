@@ -267,6 +267,9 @@
         }
 
         @media (max-width: 768px) {
+            html{
+                font-size: 12px;
+            }
             header {
                 flex-direction: column;
                 align-items: center;
@@ -279,6 +282,7 @@
             nav {
                 flex-direction: column;
                 gap: 0.5rem;
+                text-align: center;
             }
 
             .hero h1 {
@@ -289,8 +293,8 @@
                 text-align: center;
             }
             
-            .introduced img {
-                max-width: 80%;
+            .introduced>img {
+                max-width: 100%;
             }
             
             .introduced a, .introduced p {
@@ -306,7 +310,7 @@
 </head>
 <body>
     <header>
-        <img src="../images/logo-removebg-preview.png" alt="Company Logo">
+        <a href="index.html"><img src="../images/logo-removebg-preview.png" alt="Company Logo"></a>
         <a href="article.html" target="_blank" class="bouncing-button">Learn More!</a>
     </header>
     <nav>
@@ -321,7 +325,7 @@
         <div class="dropdown">
             <a href="article.html" target="_blank">了解我们</a>
             <div class="dropdown-content">
-                <a href="#about1" target="_blank">关于我们</a>
+                <a href="#about" >关于我们</a>
                 <a href="#about2" target="_blank">团队介绍</a>
             </div>
         </div>
@@ -333,7 +337,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <a href="#">联系方式</a>
+            <a href="#bottom">联系方式</a>
             <div class="dropdown-content">
                 <a href="#email">邮箱:sales.china@exida.com</a>
                 <a href="#phone">电话:021-5858-6551</a>
@@ -368,6 +372,7 @@
             </div>
         </div>
     </div>
+    <div id="about"></div>
     <div class="head_exida">
         <p>关于我们</p>
     </div>
@@ -399,5 +404,6 @@
         <p class="foot"><i class="fa fa-envelope"></i> 邮件：sales.china@exida.com</p>
         <p>&copy; 2024 exida(上海)雅析安全系统有限公司</p>
     </footer>
+    <div id="bottom"></div>
 </body>
 </html>
