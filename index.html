@@ -11,13 +11,18 @@
             box-sizing: border-box;
         }
         html, body {
-            height: 50px;
             margin: 0; 
             padding: 0;
             font-family: 'Circular Std Book', Helvetica, Arial, sans-serif;
         }
+        img{
+            width: 100%;
+            min-width: 400px;
+            height: auto;
+            object-fit: contain;
+        }
         .ceshi{
-            height: 100vh;
+            min-height: 100vh;
             background: url('/images/img8.jpg') no-repeat center center;
             background-size: cover;
             background-position: 40% 76%;
@@ -34,7 +39,6 @@
             font-size: 50px;
             color: white;
         }
-
         .bar{
             position: absolute;
             width: 30%;
@@ -69,30 +73,25 @@
             text-decoration: none;
         }
         .exida2{
-            height: 100vh;
+            min-height: 100vh;
             background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            position: relative;
+            justify-content: space-around;
+
         }
 
-        .img1{
-            margin-left: 8rem;
-        }
+
         .exida2 h1{
-            margin-right: 30rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
         .exida2 p{
-            position: absolute;
-            right: 33rem;
-            bottom: 35%;
             font-size: 1.5rem;
+            margin-bottom: 4rem;
         }
         .button1{
-            position: absolute;
-            right: 20%;
-            bottom: 20%;
+            margin-left: 430px;
             padding: 5px 10px;
             width: 10rem;
             height: 3rem;
@@ -109,12 +108,17 @@
             color: white;
         }
         .exida3{
-            height: 100vh;
+            min-height: 100vh;
             background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+        }
+        .text1{
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .button2{
             width: 10rem;
@@ -124,9 +128,6 @@
             border: 4px solid #f93b2a;
             border-radius: 2rem;
             color: #f93b2a;
-            position: absolute;
-            left: 27%;
-            top:60%;
             transition: all 0.4s ease;
         }
         .button2:hover{
@@ -276,105 +277,22 @@
                 transform: rotate(360deg) scale(0);
             }
         }
-        
-        /*星星动态，截至*/
-        @media (max-width: 600px) {
-            h1 h2{
-                font-size: 10px;
+        @media (max-width: 768px) {
+            .exida2,.exida3 {
+                flex-direction: column; /* 改为垂直方向排列 */
+                text-align: center;
             }
-        }
-        @media screen and (max-width: 1200px) {
-            .ceshi h1 {
-                left: 20%;
-                top: 35%;
-                font-size: 40px;
-            }
-            .bar {
-                width: 50%;
-                bottom: 15%;
-                right: 10%;
-            }
-            .bar1 {
-                font-size: 14px;
-                width: 150px;
-                height: 40px;
-                margin: 5px 30px;
-            }
-            img{
-                width: 100%;
-            }
-        }
-        
-        @media screen and (max-width: 768px) {
-            .ceshi h1 {
-                left: 10%;
-                top: 30%;
+            .text2 h1{
                 font-size: 30px;
             }
-            .bar {
-                width: 80%;
-                bottom: 10%;
-                right: 5%;
-                flex-direction: column;
+            .button2 {
+                margin: 10px 0; /* 间距调整 */
             }
-            .bar1 {
-                font-size: 12px;
-                width: 120px;
-                height: 35px;
-                margin: 10px auto;
-            }
-            .exida2 h1 {
-                font-size: 1.5rem;
-                margin-right: 5rem;
-            }
-            .exida2 p {
-                right: 10%;
-                font-size: 1rem;
-            }
-            .button1 {
-                right: 10%;
-                width: 8rem;
-                height: 2.5rem;
-                font-size: 1rem;
-            }
-            .wechat-container {
-                top: 50%;
-                right: 5%;
-            }
-            img{
-                width: 1000px;
+            .wechat-container{
+                right: 60%;
             }
         }
-        
-        @media screen and (max-width: 480px) {
-            .ceshi h1 {
-                font-size: 20px;
-                left: 5%;
-                top: 25%;
-            }
-            .bar1 {
-                font-size: 10px;
-                width: 100px;
-                height: 30px;
-            }
-            .exida2 h1 {
-                font-size: 1.2rem;
-                margin-right: 2rem;
-            }
-            .exida2 p {
-                font-size: 0.9rem;
-                right: 5%;
-            }
-            .button1 {
-                width: 7rem;
-                height: 2rem;
-                font-size: 0.8rem;
-            }
-            .wechat-container {
-                top: 45%;
-                right: 2%;
-            }
-        }        
+        /*星星动态，截至*/    
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -392,15 +310,18 @@
         <div class="img1">
             <img src="/images/img1.png" >
         </div>
-        <h1>我们助力于汽车功能安全方面认证与咨询</h1>
-        <p>工程和开发 安全SOA和FOTA 流程设置 ISO26262</p>
-        <a href="training.html" target="_blank"><button class="button1">认证</button></a>
+        <div>       
+             <h1>我们助力于汽车功能安全方面认证与咨询</h1>
+            <p>工程和开发 安全SOA和FOTA 流程设置 ISO26262</p>
+            <a href="training.html" target="_blank"><button class="button1">认证</button></a>
+        </div>
     </div>
     <div class="exida3">
         <div class="text1">
             <h1>更有力，更深刻的内容，伴随着大量的文字，exida一直不忘与各位同行交流分享。</h1>
+            <a href="article.html" target="_blank"><button class="button2">文章</button></a>
         </div>
-        <a href="article.html" target="_blank"><button class="button2">文章</button></a>
+        
         <div class="img2">
             <img src="/images/img2.jpg">
         </div>
